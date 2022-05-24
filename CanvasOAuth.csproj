@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<PackageId>CanvasOAuth</PackageId>
-		<Version>1.0.0</Version>
+		<Version>1.0.1</Version>
 		<Authors></Authors>
 		<TargetFramework>net6.0</TargetFramework>
 		<ImplicitUsings>enable</ImplicitUsings>
@@ -11,14 +11,12 @@
 		<Description>Provides a service collection extension to add Canvas LMS OAuth to your .NET app.</Description>
 		<PackageProjectUrl></PackageProjectUrl>
 		<RepositoryUrl>https://github.com/sparker2000/CanvasOAuth.git</RepositoryUrl>
-		<PackageTags>canvas;lms;oauth;oauth2;extension</PackageTags>
+		<PackageTags>canvas;lms;oauth;oauth2;extension;aspnetcore;authentication;security</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
-		<PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
-		<PackageReference Include="Microsoft.AspNetCore.Authentication.OAuth" Version="2.2.0" />
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
 	</ItemGroup>
 
 </Project>

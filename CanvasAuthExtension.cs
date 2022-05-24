@@ -1,11 +1,11 @@
 ﻿using System.Net.Http.Headers;
 using System.Security.Claims;
+using System.Text.Json;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json.Linq;
 
 namespace CanvasOAuth
 {
@@ -113,8 +113,8 @@ namespace CanvasOAuth
                         var response = await context.Backchannel.SendAsync(request, HttpCompletionOption.ResponseHeadersRead, context.HttpContext.RequestAborted);
                         response.EnsureSuccessStatusCode();
 
-                        var user = JObject.Parse(await response.Content.ReadAsStringAsync());
-                        context.RunClaimActions(user);
+                        var user = JsonDocument.Parse(await response.Content.ReadAsStringAsync());
+                        context.RunClaimActions(user.RootElement);
                     }
                 };
             });
