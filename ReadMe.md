@@ -43,12 +43,12 @@ builder.Services
     .AddAuthentication()
     .AddCanvas(o =>
     {
-        o.ClientId = builder.Configuration["Canvas:ClientId"];
-        o.ClientSecret = builder.Configuration["Canvas:ClientSecret"];
+        o.ClientId = builder.Configuration["Authentication:Canvas:ClientId"];
+        o.ClientSecret = builder.Configuration["Authentication:Canvas:ClientSecret"];
 
-        o.AuthorizationEndpoint = $"{builder.Configuration["Canvas:CanvasUrl"]}login/oauth2/auth";
-        o.TokenEndpoint = $"{builder.Configuration["Canvas:CanvasUrl"]}login/oauth2/token";
-        o.UserInformationEndpoint = $"{builder.Configuration["Canvas:CanvasUrl"]}api/v1/users/self";
+        o.AuthorizationEndpoint = $"{builder.Configuration["Authentication:Canvas:CanvasUrl"]}login/oauth2/auth";
+        o.TokenEndpoint = $"{builder.Configuration["Authentication:Canvas:CanvasUrl"]}login/oauth2/token";
+        o.UserInformationEndpoint = $"{builder.Configuration["Authentication:Canvas:CanvasUrl"]}api/v1/users/self";
     });
 ```
 
