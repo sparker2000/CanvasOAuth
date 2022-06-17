@@ -12,6 +12,7 @@ namespace CanvasOAuth
     /// <summary>
     /// Configuration options for Canvas OAuth
     /// </summary>
+    [Obsolete("For use with v1 of CanvasOAuth")]
     public class CanvasAuthOptions
     {
         /// <summary>
@@ -40,6 +41,7 @@ namespace CanvasOAuth
         public string CallbackPath { get; set; } = "/signin";
     }
 
+    [Obsolete("For use with v1 of CanvasOAuth")]
     public static class CanvasAuthExtension
     {
         /// <summary>
@@ -67,13 +69,13 @@ namespace CanvasOAuth
         /// app.UseAuthorization();
         /// </code>
         /// </remarks>
+        [Obsolete("For use with v1 of CanvasOAuth")]
         public static AuthenticationBuilder AddCanvasOAuth(this IServiceCollection serviceCollection, CanvasAuthOptions canvasOptions)
         {
             return serviceCollection.AddAuthentication(options =>
             {
                 // If an authentication cookie is present, use it to get authentication information
-                options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 
                 // If authentication is required, and no cookie is present, use Canvas (configured below) to sign in
                 options.DefaultChallengeScheme = "Canvas";
